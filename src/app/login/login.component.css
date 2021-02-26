@@ -1,0 +1,17 @@
+div.image{
+    width: 275px;
+    height:185px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    content: url(https://www.clinicaltrialsarena.com/wp-content/uploads/sites/33/2020/02/Coronavirus-in-India.jpg);
+}
+#exampleInputEmail{
+    display: inline-block;
+    padding: 0%;
+}
+#exampleInputPassword{
+    display: inline-block;
+    padding: 0%;
+
+}

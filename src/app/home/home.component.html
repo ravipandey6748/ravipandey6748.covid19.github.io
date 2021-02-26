@@ -1,0 +1,107 @@
+
+<div Class="jumbotron bg-blue">
+    <h1 Class="dsisplay-4"><font color="green">Corona Covid-19 Tracker</font></h1>
+    <p Class="lead"><b><font color="blue">It tracks the daily active cases,recover cases and death cases.</font></b></p>
+    <hr Class="my-4">
+    <p></p>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row font-weight-bold" >
+        <div class="col-lg-3 col-xs-12 card text-center">
+            <div class="card-body">
+                <h4>Confirmed</h4>
+                <h1>{{data[0].confirmed}}</h1>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-12 card text-center">
+            <div class="card-body">
+                <h4>Recovered</h4>
+                <h1>{{data[0].recovered}}</h1>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-12 card text-center">
+            <div class="card-body">
+                <h4>Deceased</h4>
+                <h1>{{data[0].deaths}}</h1>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-12 card text-center">
+            <div class="card-body">
+                <h4>Active</h4>
+                <h1>{{data[0].active}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-xs-12 mt-4">
+            <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                </canvas>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 col-xs-12 mt-4">
+            <div class="chart-wrapper">
+                <canvas baseChart [colors]="pieChartColors" [data]="pieChartData" [labels]="pieChartLabels"
+                    [chartType]="pieChartType" [options]="pieChartOptions" [plugins]="pieChartPlugins"
+                    [legend]="pieChartLegend">
+                </canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+
+            <table class="table table-red">
+                <thead class="font-weight-bold">
+                    <td>
+                        State
+                    </td>
+                    <td>
+                        Confirmed
+                    </td>
+                    <td>
+                        Active
+
+                    </td>
+                    <td>
+                        Recovered
+                    </td>
+                    <td>
+                        Deaths
+                    </td>
+
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data | slice:1">
+                        <td>
+                            {{item.state}}
+                        </td>
+                        <td>
+                            {{item.confirmed}}
+                        </td>
+                        <td>
+                            {{item.active}}
+                        </td>
+                        <td>
+                            {{item.recovered}}
+                        </td>
+                        <td>
+                            {{item.deaths}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
